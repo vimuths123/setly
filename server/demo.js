@@ -81,7 +81,7 @@ exports.handler = async (event, context) => {
     return {
       statusCode: 302,
       headers: {
-        Location: referer+'?error=error'
+        Location: referer+'?error='+error.response.data.message
       }
     }
   }
