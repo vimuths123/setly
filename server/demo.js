@@ -72,6 +72,7 @@ exports.handler = async (event, context) => {
       headers: { Location: '/calender.html' }
     }
   } catch (error) {
+    // console.error(error);
     console.error(error);
     mongoose.disconnect();
 
@@ -79,7 +80,7 @@ exports.handler = async (event, context) => {
     return {
       statusCode: 400,
       headers: {
-        Location: referer+'?error='+error
+        Location: referer+'?error=error'
       }
     }
   }
