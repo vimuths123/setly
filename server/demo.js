@@ -72,7 +72,7 @@ exports.handler = async (event, context) => {
     return {
       statusCode: 301,
       headers: {
-        Location: referer
+        Location: referer+'?error=err'
       }
     };
 
