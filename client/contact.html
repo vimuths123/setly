@@ -364,17 +364,17 @@ a,
 
     // Get the value of the "error" query parameter
     const urlParams = new URLSearchParams(window.location.search);
-    const error = urlParams.get('error');
+    var error = urlParams.get('error');
 
     // If the error parameter is present, show a toast message
     if (error) {
-      if(error == 'This location does not allow duplicated contacts'){
+      if(error == 'This location does not allow duplicated contacts.'){
         error = "Email or Phone number already exist in the database"
       }
 
       Toastify({
         text: error,
-        duration: 5000,
+        duration: 10000,
         gravity: 'top',
         position: 'center',
         backgroundColor: 'red',
