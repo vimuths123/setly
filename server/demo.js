@@ -67,15 +67,24 @@ exports.handler = async (event, context) => {
 
     mongoose.disconnect()
 
+    const referer = event.headers.referer;
+    console.log(referer)
     return {
       statusCode: 301,
-      body: '',
-      // headers: { Location: '/calender.html' }
-    }
+      headers: {
+        Location: referer
+      }
+    };
+
+    // return {
+    //   statusCode: 301,
+    //   body: '',
+    //   headers: { Location: '/calender.html' }
+    // }
   } catch (error) {
     console.error(error);
     mongoose.disconnect();
-    
+
     return {
       statusCode: 400,
       body: '',
