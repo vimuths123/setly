@@ -72,6 +72,7 @@ exports.handler = async (event, context) => {
       headers: { Location: '/calender.html' }
     }
   } catch (error) {
+    console.log('hete')
     // console.error(error);
     // console.error(error);
     mongoose.disconnect();
