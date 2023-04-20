@@ -73,7 +73,7 @@ exports.handler = async (event, context) => {
     }
   } catch (error) {
     // console.error(error);
-    console.error(error);
+    // console.error(error);
     mongoose.disconnect();
 
     const referer = event.headers.referer;
