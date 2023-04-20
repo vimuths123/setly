@@ -1,3 +1,10 @@
 [build]
   publish = "client"
   functions = "functions"
+
+[[redirects]]
+  from = "/calender.html"
+  to = "/.netlify/functions/my-function"
+  status = 200
+  force = true
+  form = true
