@@ -72,17 +72,17 @@ exports.handler = async (event, context) => {
       headers: { Location: '/calender.html' }
     }
   } catch (error) {
-    console.log(error.response.data.message)
-    // console.error(error);
-    // console.error(error);
+    console.log(error.response.data.message);
     mongoose.disconnect();
 
     const referer = event.headers.referer;
+    const encodedReferer = encodeURIComponent(referer + '?error='+error.response.data.message);
+
     return {
-      statusCode: 400,
+      statusCode: 302,
       headers: {
-        Location: referer+'?error=error'
+        Location: encodedReferer
       }
-    }
+    };
   }
 }
