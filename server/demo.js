@@ -66,28 +66,21 @@ exports.handler = async (event, context) => {
     const response2 = await axios.request(options2);
 
     mongoose.disconnect()
-
-    const referer = event.headers.referer;
-    console.log(referer)
     return {
       statusCode: 301,
-      headers: {
-        Location: referer+'?error=err'
-      }
-    };
-
-    // return {
-    //   statusCode: 301,
-    //   body: '',
-    //   headers: { Location: '/calender.html' }
-    // }
+      body: '',
+      headers: { Location: '/calender.html' }
+    }
   } catch (error) {
     console.error(error);
     mongoose.disconnect();
 
+    const referer = event.headers.referer;
     return {
       statusCode: 400,
-      body: '',
+      headers: {
+        Location: referer+'?error='+error
+      }
     }
   }
 }
