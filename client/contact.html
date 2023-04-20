@@ -38,8 +38,7 @@
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  
 </head>
 
 <body>
@@ -354,6 +353,9 @@ a,
     type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', async () => {
       const response = await fetch('/.netlify/functions/auth')
@@ -369,7 +371,7 @@ a,
     // If the error parameter is present, show a toast message
     if (error) {
       if(error == 'This location does not allow duplicated contacts.'){
-        error = "Email or Phone number already exist in the database"
+        error = "Email or Phone number already exists. Please use another"
       }
 
       Toastify({
